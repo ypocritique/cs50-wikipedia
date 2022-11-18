@@ -1,0 +1,12 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ entryTitle }}
+{% endblock %}
+
+{% block body %}
+    {{ entry|safe }} <!-- For Django to accept it as safe-->
+    <a class="btn btn-light maron" href="/wiki/{{ entryTitle }}/edit" role="button">
+        <b>Edit</b>
+    </a>
+{% endblock %}

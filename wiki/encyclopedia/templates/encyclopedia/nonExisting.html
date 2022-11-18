@@ -1,0 +1,16 @@
+
+<!-- Look for entry and edit if there is none-->
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ entryTitle }} not found.
+{% endblock %}
+
+{% block body %}
+    <span style="font-size: 50px;">{{ entryTitle }}</span><span style="font-size: 25px;"> isn't in our library</span>
+    
+    <h6> Feel free to create a new entry if you want so.
+        By clicking <a href="{% url 'newEntry' %}" class="noir">here</a> you can do it.
+    </h6>
+
+{% endblock %}

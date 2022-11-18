@@ -1,0 +1,30 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+
+    {% if search %}
+      <h2>Results found for "{{ value }}"</h2>
+    {% else %}
+      <h1>
+        <b>All Pages</b>
+      </h1>
+    {% endif %}
+    
+    <ul class="go">
+        {% for entry in entries %}
+            <a href="/wiki/{{ entry }}">
+              <li>{{ entry }}</li>
+            </a>
+        {% empty %} <!-- If there is no such entry -->
+            <p>
+              There is no entry as <b>"{{ value }}"</b> in the library. You can create one by clicking
+              <a href="{% url 'newEntry' %}" class=" noir">here</a>
+            </p>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
